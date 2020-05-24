@@ -1,0 +1,17 @@
+<template>
+    <lightning-layout vertical-align="stretch" multiple-rows="true">
+        <lightning-layout-item flexibility="auto" padding="around-small">
+            <lightning-card title="Parent Component">
+                <div class="slds-m-around_medium">
+                    <b> Value 1 From Child &nbsp;&nbsp; </b>{valueInp1} <br />
+                    <b> Value 2 From Child&nbsp;&nbsp;</b>{valueInp2} <br />
+                </div>
+            </lightning-card>
+        </lightning-layout-item>
+        <lightning-layout-item flexibility="auto" padding="around-small">
+            <div  oninptext={handleSelect}>
+                <c-child-comp> </c-child-comp>
+            </div>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>
