@@ -4,12 +4,14 @@
             <lightning-card title="Parent Component">
                 <div class="slds-m-around_medium">
                     <b> Value 1 From Child &nbsp;&nbsp; </b>{valueInp1} <br />
-                    <b> Value 2 From Child&nbsp;&nbsp;</b>{valueInp2} <br />
+                    <b> Value 2 From Child &nbsp;&nbsp; </b>{valueInp2} <br />
                 </div>
             </lightning-card>
         </lightning-layout-item>
         <lightning-layout-item flexibility="auto" padding="around-small">
-            <div  oninptext={handleSelect}>
+            <div oninptext={handleSelect}>
+                <!-- oninptext is an event from c-child-comp
+                which is bubbled up so we can use it outside the <c-child-comp> tag -->
                 <c-child-comp> </c-child-comp>
             </div>
         </lightning-layout-item>
