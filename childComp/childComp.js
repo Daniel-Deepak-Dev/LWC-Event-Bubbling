@@ -1,30 +1,28 @@
-import {
-    LightningElement,
-    api
-} from 'lwc';
+import { LightningElement } from 'lwc';
 
-export default class Eventsource extends LightningElement {
-
-    @api param1;
-    @api param2;
-
+export default class ChildComp extends LightningElement {
+    param1;
+    param2;
     handleChange(event) {
-        event.preventDefault();
         const name = event.target.name;
-        var param1, param2;
-        if (name == 'text1' && event.target.value != null && event.target.value != undefined) {
+        if (name === 'text1') {
             this.param1 = event.target.value;
-        } else if (name == 'text2' && event.target.value != null && event.target.value != undefined) {
+        } else if (name === 'text2') {
             this.param2 = event.target.value;
         }
-
-        console.log('11 -> ' + this.param1);
-        console.log('11 -> ' + this.param2);
+        console.log('param 1 -> ' + this.param1);
+        console.log('param 2 -> ' + this.param2);
 
         this.dispatchEvent(new CustomEvent(
-            'inptext', {
+            'inptext',
+            {
+                detail: {
+                    param1: this.param1,
+                    param2: this.param2
+                },
                 bubbles: true,
                 composed: false
-            }));
+            }
+        ));
     }
 }
